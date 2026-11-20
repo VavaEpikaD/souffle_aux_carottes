@@ -1,0 +1,9 @@
+// Match A(k, x) and B(k, y) on k, producing Result(x, y).
+.decl A(k: number, x: number)
+.input A
+.decl B(k: number, y: number)
+.input B
+.decl Result(x: number, y: number)
+.output Result
+
+Result(x, y) :- A(k, x), B(k, y).

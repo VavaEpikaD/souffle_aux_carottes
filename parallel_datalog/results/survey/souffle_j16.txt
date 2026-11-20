@@ -1,0 +1,19 @@
+=== cspa_httpd
+MemoryAlias	88905342
+ValueAlias	234237608
+ValueFlow	1365306
+wall=121.20 s maxrss=8392968 KB
+exit=0
+=== cspa_linux
+MemoryAlias	13777625
+ValueAlias	30938106
+ValueFlow	5509641
+wall=45.71 s maxrss=1766632 KB
+exit=0
+=== cspa_postgresql
+MemoryAlias	89475479
+ValueAlias	223793861
+ValueFlow	3712452
+wall=150.68 s maxrss=9720136 KB
+exit=0
+=== sg_CA-HepTh

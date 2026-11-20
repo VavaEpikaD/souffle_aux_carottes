@@ -1,0 +1,14 @@
+CSPA PostgreSQL subset: sequential / pthread / MPI comparison
+Input: identical subset-200000 facts, both endpoints < 200000.
+Input facts: assign=42217, dereference=133320, total=175537.
+Flags: -std=c++17 -O3 -DNDEBUG -pthread -DRAM_DOMAIN_SIZE=64; MPI built with mpicxx.
+SIZE_ONLY, no profiling. Three interleaved repetitions per backend.
+Wall times include process startup, input loading, computation and count output.
+MPI also includes mpirun startup, communication, synchronization and shutdown.
+MPI: four local ranks, --bind-to none. Pthreads: four workers.
+Peak RSS sampled every 100 ms; MPI total is summed rank RSS (shared pages can be counted repeatedly).
+sequential: runs=[15.69, 16.97, 15.32], median=15.690 s, speedup_vs_sequential=1.000x, peak_summed_rss=1220.1 MiB, peak_per_process_rss=1220.1 MiB
+pthreads: runs=[6.73, 6.68, 6.65], median=6.680 s, speedup_vs_sequential=2.349x, peak_summed_rss=1290.2 MiB, peak_per_process_rss=1290.2 MiB
+mpi: runs=[25.16, 22.03, 22.09], median=22.090 s, speedup_vs_sequential=0.710x, peak_summed_rss=5276.5 MiB, peak_per_process_rss=1321.2 MiB
+All runs match expected relation counts (complete tuple contents were not compared):
+{"MemoryAlias": 10778093, "ValueAlias": 28256054, "ValueFlow": 121505}

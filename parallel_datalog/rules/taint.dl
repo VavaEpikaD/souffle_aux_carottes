@@ -1,0 +1,32 @@
+// taint.dl - the three taint rules of the project plan (Section 2).
+//
+//   Source(s, v)    : variable v receives attacker data at source location s
+//   Flow(v, w)      : the value of v can flow into w (assignment, argument -> parameter, return)
+//   Sink(k, v)      : v is used at dangerous call k (e.g. the length of a memcpy)
+//   Sanitized(v)    : v is the output of a check / cleaning function
+//   Reach(s, v)     : attacker data from s can reach v
+//   Alert(s, k)     : attacker data from s reaches sink k  -> one critical flow
+
+.decl Source(s: number, v: number)
+.input Source
+.decl Flow(v: number, w: number)
+.input Flow
+.decl Sink(k: number, v: number)
+.input Sink
+.decl Sanitized(v: number)
+.input Sanitized
+
+.decl Reach(s: number, v: number)
+.decl Alert(s: number, k: number)
+
+#ifdef SIZE_ONLY
+.printsize Reach
+.printsize Alert
+#else
+.output Reach
+.output Alert
+#endif
+
+Reach(s, v) :- Source(s, v).
+Reach(s, w) :- Reach(s, v), Flow(v, w), !Sanitized(w).
+Alert(s, k) :- Reach(s, v), Sink(k, v).

@@ -1,0 +1,8 @@
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+MemoryAlias        31    23.640     7.073     0.057    0.000       541096  18734234
+ValueAlias         31    71.540    17.968     0.000    0.000            0  46539174
+ValueFlow          31     1.731     0.050     0.097    0.000       903752  104641
+assign              0     0.000     0.000     0.000    0.069       362799  0
+dereference         0     0.000     0.000     0.000    0.217      1147612  0
+TOTAL                    96.911    25.092     0.153    0.286
+share: recursive rules (join+dedup+insert) 79.1%, merge new->full (copy) 20.5%, non-recursive rules 0.1%, loading 0.2%

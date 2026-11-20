@@ -1,0 +1,5 @@
+dataset,backend,workers,completed,failed,median_s,speedup,peak_total_rss_mib,counts_checked
+50000,mpi,4,1,0,1.112,0.285,99.4,True
+50000,openmp,4,1,0,0.24,1.321,11.4,True
+50000,pthreads,4,1,0,0.247,1.283,11.1,True
+50000,sequential,1,1,0,0.317,1.0,10.1,True

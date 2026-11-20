@@ -1,0 +1,86 @@
+# Local environment and credentials
+/.aws/
+/.codex/
+/.agents/
+/.ssh/
+.env
+.env.*
+!.env.example
+!.env.sample
+id_rsa
+id_ed25519
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Machine-specific builds and executables
+/build/
+/build-*/
+/cmake-build-*/
+/soufle/build*/
+/soufle/cmake-build-*/
+/parallel_datalog/bin/
+/slurm/work/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+build.ninja
+.ninja_deps
+.ninja_log
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+
+# Downloaded datasets, container images and transfer archives.
+# Keep test .facts/.csv fixtures and benchmark summaries versionable.
+/data/
+/datasets/
+/downloads/
+/stadata/
+/slurm/inputs/
+*.sif
+/*.zip
+/*.tar.gz
+/*.tgz
+
+# Raw benchmark provenance contains personal/server paths.
+# Keep summary.csv, summary.json and summary.txt available to commit.
+/slurm/reference/full-postgresql/[0-9]*.json
+/slurm/reference/full-postgresql/input.json
+/slurm/reference/full-postgresql/manifest.json
+
+# Runtime, profiling and Slurm output
+gmon.out
+*.gcda
+*.gcno
+perf.data
+perf.data.*
+slurm-*.out
+slurm-*.err
+cspa-*.out
+cspa-*.err
+/core
+/core.[0-9]*
+
+# Python caches, environments and editor files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

@@ -1,0 +1,44 @@
+[
+  {
+    "backend": "builtin-openmp",
+    "rep": 1,
+    "wall_s": 8.33,
+    "peak_rss_mib": 1333.5,
+    "peak_os_threads": 4,
+    "exit": 0,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  },
+  {
+    "backend": "builtin-openmp",
+    "rep": 2,
+    "wall_s": 8.22,
+    "peak_rss_mib": 1329.3,
+    "peak_os_threads": 4,
+    "exit": 0,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  },
+  {
+    "backend": "builtin-openmp",
+    "rep": 3,
+    "wall_s": 8.26,
+    "peak_rss_mib": 1329.4,
+    "peak_os_threads": 4,
+    "exit": 0,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  }
+]

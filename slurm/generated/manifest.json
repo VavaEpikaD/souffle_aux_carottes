@@ -1,0 +1,11 @@
+{
+  "souffle_commit": "5682a9f12e2668ecdd26348fe63cc508bc0fcf47",
+  "domain_bits": 64,
+  "size_only": true,
+  "sources": {
+    "slurm/generated/openmp.cpp": "90867c8afa952383a35322704529078688a5e4dab6f7890e08ad3838dd25cab5",
+    "slurm/generated/sequential.cpp": "b9274fafc7ab59ddec4450a4bb9a8d0e14dba177f4bc3f9a1803e390b13ee541",
+    "slurm/generated/mpi.cpp": "d0e60e28f296f9a22d5a5d84ce9bdafb50289c89df15eb11030c79dd48686bdb",
+    "slurm/generated/pthreads.cpp": "746773a787bc8f579b425bb6070d6367b8911794d5b7a8750e0756affa61b880"
+  }
+}

@@ -1,0 +1,30 @@
+    51.46%  [.] souffle::Stratum_path_614f1ce382100c3f::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::{lambda
+    22.25%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     8.92%  [.] souffle::OptimisticReadWriteLock::start_read()                                                                                                  
+     3.54%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     2.44%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     2.28%  [.] souffle::OptimisticReadWriteLock::try_upgrade_to_write(souffle::OptimisticReadWriteLock::Lease const&)                                          
+     1.40%  [.] _int_free_merge_chunk                                                                                                                           
+     1.07%  [k] clear_page_erms                                                                                                                                 
+     0.79%  [.] __memmove_avx512_unaligned_erms                                                                                                                 
+     0.67%  [.] souffle::OptimisticReadWriteLock::start_write()                                                                                                 
+     0.50%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     0.39%  [.] souffle::Stratum_path_614f1ce382100c3f::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)         
+     0.35%  [.] malloc                                                                                                                                          
+     0.35%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     0.33%  [k] do_user_addr_fault                                                                                                                              
+     0.32%  [.] _int_malloc                                                                                                                                     
+     0.28%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     0.23%  [.] void std::vector<souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array
+     0.22%  [.] _int_free                                                                                                                                       
+     0.20%  [k] _raw_spin_unlock_irqrestore                                                                                                                     
+     0.13%  [k] do_anonymous_page                                                                                                                               
+     0.12%  [.] cfree@GLIBC_2.2.5                                                                                                                               
+     0.11%  [k] __rmqueue_pcplist                                                                                                                               
+     0.08%  [.] __gnu_cxx::__normal_iterator<souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocato
+     0.07%  [k] memcg1_commit_charge                                                                                                                            
+     0.06%  [.] unlink_chunk.isra.0                                                                                                                             
+     0.06%  [k] __handle_mm_fault                                                                                                                               
+     0.05%  [k] get_page_from_freelist                                                                                                                          
+     0.05%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11__10::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >
+     0.05%  [k] __rcu_read_unlock                                                                                                                               

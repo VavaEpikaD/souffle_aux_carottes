@@ -1,0 +1,14 @@
+// tc.dl - transitive closure / reachability (linear recursion, as in GPUlog's REACH benchmark).
+
+.decl edge(x: number, y: number)
+.input edge
+.decl path(x: number, y: number)
+
+#ifdef SIZE_ONLY
+.printsize path
+#else
+.output path
+#endif
+
+path(x, y) :- edge(x, y).
+path(x, y) :- path(x, z), edge(z, y).

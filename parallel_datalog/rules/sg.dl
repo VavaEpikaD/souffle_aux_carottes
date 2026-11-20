@@ -1,0 +1,15 @@
+// sg.dl - same generation: x and y are at the same depth below a common ancestor.
+// Rules unchanged from GPUlog's benchmark (harp-lab/gdlog, test/souffle/sg.dl).
+
+.decl edge(x: number, y: number)
+.input edge
+.decl sg(x: number, y: number)
+
+#ifdef SIZE_ONLY
+.printsize sg
+#else
+.output sg
+#endif
+
+sg(x, y) :- edge(p, x), edge(p, y), x != y.
+sg(x, y) :- edge(a, x), sg(a, b), edge(b, y).

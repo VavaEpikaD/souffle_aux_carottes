@@ -1,0 +1,336 @@
+start Tue Nov 17 07:25:23 EET 2026
+Warning: Variable y only occurs once in file cspa.dl at line 40
+ValueFlow(x, x) :- assign(x, y).
+-----------------------------^---
+Warning: Variable y only occurs once in file cspa.dl at line 41
+ValueFlow(x, x) :- assign(y, x).
+--------------------------^------
+Warning: Variable y only occurs once in file cspa.dl at line 43
+MemoryAlias(x, x) :- assign(y, x).
+----------------------------^------
+Warning: Variable y only occurs once in file cspa.dl at line 44
+MemoryAlias(x, x) :- assign(x, y).
+-------------------------------^---
+== cspa_linux j1
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+MemoryAlias        28     8.465     1.135     0.267    0.000      3081534  5910714
+ValueAlias         28    24.931     2.601     0.000    0.000            0  11374512
+ValueFlow          28     4.921     0.111     0.449    0.000      5062637  218436
+assign              0     0.000     0.000     0.000    0.351      1981258  0
+dereference         0     0.000     0.000     0.000    1.323      7502955  0
+TOTAL                    38.316     3.847     0.715    1.674
+share: recursive rules (join+dedup+insert) 86.0%, merge new->full (copy) 8.6%, non-recursive rules 1.6%, loading 3.8%
+    29.62%  [.] souffle::t_btree_000_ii__0_1__11__10::Type::lowerUpperRange_10(std::array<long, 2ul> const&, std::array<long, 2ul> const&, souffle::t_btree_000_
+    12.98%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+    10.08%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     8.41%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11__10::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >
+     7.16%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     5.56%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     4.92%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     3.68%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+== cspa_linux j16
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+MemoryAlias        28     1.159     1.077     0.269    0.000      3081534  5910714
+ValueAlias         28     3.160     2.708     0.000    0.000            0  11374512
+ValueFlow          28     0.600     0.114     0.453    0.000      5062637  218436
+assign              0     0.000     0.000     0.000    0.307      1981258  0
+dereference         0     0.000     0.000     0.000    1.157      7502955  0
+TOTAL                     4.919     3.900     0.722    1.464
+share: recursive rules (join+dedup+insert) 44.7%, merge new->full (copy) 35.4%, non-recursive rules 6.6%, loading 13.3%
+    29.19%  [.] souffle::t_btree_000_ii__0_1__11__10::Type::lowerUpperRange_10(std::array<long, 2ul> const&, std::array<long, 2ul> const&, souffle::t_btree_000_
+    13.16%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     9.62%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     7.49%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11__10::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >
+     7.40%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     5.94%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     5.57%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     3.64%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+cspa,cspa_linux,souffle_seq,1,43.55,1725,0
+cspa,cspa_linux,souffle_par,1,39.82,1725,0
+cspa,cspa_linux,souffle_par,2,27.11,1734,0
+cspa,cspa_linux,souffle_par,4,15.50,1829,0
+cspa,cspa_linux,souffle_par,8,13.81,1847,0
+cspa,cspa_linux,souffle_par,16,9.25,1840,0
+== cspa_httpd j1
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+MemoryAlias        31    23.640     7.073     0.057    0.000       541096  18734234
+ValueAlias         31    71.540    17.968     0.000    0.000            0  46539174
+ValueFlow          31     1.731     0.050     0.097    0.000       903752  104641
+assign              0     0.000     0.000     0.000    0.069       362799  0
+dereference         0     0.000     0.000     0.000    0.217      1147612  0
+TOTAL                    96.911    25.092     0.153    0.286
+share: recursive rules (join+dedup+insert) 79.1%, merge new->full (copy) 20.5%, non-recursive rules 0.1%, loading 0.2%
+    18.31%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+    15.46%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11__10::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >
+    14.53%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+    13.11%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     5.13%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     3.94%  [.] souffle::t_btree_000_ii__0_1__11__10::Type::lowerUpperRange_10(std::array<long, 2ul> const&, std::array<long, 2ul> const&, souffle::t_btree_000_
+     3.01%  [.] souffle::OptimisticReadWriteLock::start_read()                                                                                                  
+     2.73%  [.] souffle::OptimisticReadWriteLock::try_upgrade_to_write(souffle::OptimisticReadWriteLock::Lease const&)                                          
+== cspa_httpd j16
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+MemoryAlias        31     3.417     7.297     0.053    0.000       541096  18734234
+ValueAlias         31    11.784    20.172     0.000    0.000            0  46539174
+ValueFlow          31     0.286     0.070     0.077    0.000       903752  104641
+assign              0     0.000     0.000     0.000    0.057       362799  0
+dereference         0     0.000     0.000     0.000    0.177      1147612  0
+TOTAL                    15.487    27.539     0.130    0.233
+share: recursive rules (join+dedup+insert) 35.7%, merge new->full (copy) 63.5%, non-recursive rules 0.3%, loading 0.5%
+    15.81%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+    15.07%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+    13.48%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11__10::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >
+    10.95%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+    10.44%  [k] osq_lock                                                                                                                                        
+     4.57%  [.] souffle::OptimisticReadWriteLock::start_read()                                                                                                  
+     3.51%  [.] souffle::t_btree_000_ii__0_1__11__10::Type::lowerUpperRange_10(std::array<long, 2ul> const&, std::array<long, 2ul> const&, souffle::t_btree_000_
+     3.16%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+cspa,cspa_httpd,souffle_seq,1,116.26,8196,0
+cspa,cspa_httpd,souffle_par,1,114.44,8196,0
+cspa,cspa_httpd,souffle_par,16,41.89,9833,0
+== tc_SF.cedge j1
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+edge                0     0.000     0.000     0.000    0.045       221802  0
+path              287    25.149    14.026     0.013    0.000       221802  569880
+TOTAL                    25.149    14.026     0.013    0.045
+share: recursive rules (join+dedup+insert) 64.1%, merge new->full (copy) 35.7%, non-recursive rules 0.0%, loading 0.1%
+    51.46%  [.] souffle::Stratum_path_614f1ce382100c3f::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::{lambda
+    22.25%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     8.92%  [.] souffle::OptimisticReadWriteLock::start_read()                                                                                                  
+     3.54%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     2.44%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     2.28%  [.] souffle::OptimisticReadWriteLock::try_upgrade_to_write(souffle::OptimisticReadWriteLock::Lease const&)                                          
+     1.40%  [.] _int_free_merge_chunk                                                                                                                           
+     1.07%  [k] clear_page_erms                                                                                                                                 
+== tc_SF.cedge j16
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+edge                0     0.000     0.000     0.000    0.045       221802  0
+path              287     3.710    13.838     0.012    0.000       221802  569880
+TOTAL                     3.710    13.838     0.012    0.045
+share: recursive rules (join+dedup+insert) 21.1%, merge new->full (copy) 78.6%, non-recursive rules 0.1%, loading 0.3%
+    50.94%  [.] souffle::Stratum_path_614f1ce382100c3f::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::{lambda
+    19.07%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+    13.15%  [.] souffle::OptimisticReadWriteLock::start_read()                                                                                                  
+     2.74%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     1.92%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     1.67%  [.] souffle::OptimisticReadWriteLock::try_upgrade_to_write(souffle::OptimisticReadWriteLock::Lease const&)                                          
+     1.29%  [.] souffle::OptimisticReadWriteLock::start_write()                                                                                                 
+     1.23%  [.] malloc                                                                                                                                          
+tc,tc_SF.cedge,souffle_seq,1,37.70,1995,0
+tc,tc_SF.cedge,souffle_par,1,37.20,1995,0
+tc,tc_SF.cedge,souffle_par,16,16.62,2008,0
+final start Tue Nov 17 08:20:09 EET 2026
+cspa,cspa_bzip2,souffle_seq,v1,1,1,25.81,,,256,,,,,,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,,ok
+cspa,cspa_bzip2,souffle_seq,v1,1,2,26.41,,,256,,,,,,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,,ok
+cspa,cspa_bzip2,souffle_seq,v1,1,3,27.19,,,256,,,,,,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,,ok
+cspa,cspa_bzip2,seq,v1,1,1,6.05,6.042,0.001,705,11,0.897,3.496,0.408,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,seq,v1,1,2,5.56,5.556,0.000,705,11,0.831,3.181,0.382,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,seq,v1,1,3,5.35,5.348,0.000,705,11,0.793,3.107,0.367,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,souffle_par,v1,16,1,4.05,,,279,,,,,,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,,ok
+cspa,cspa_bzip2,souffle_par,v1,16,2,1.5,,,287,,,,,,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,,ok
+cspa,cspa_bzip2,souffle_par,v1,16,3,3.79,,,278,,,,,,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,,ok
+cspa,cspa_bzip2,omp1,v1,16,1,2.32,2.280,0.001,967,11,0.342,0.854,0.137,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:3c14e1d9320f8e16;ValueFlow:0f759787bda8fdcc,WRONG
+cspa,cspa_bzip2,omp2,v2,16,1,2.64,2.613,0.000,1007,11,0.356,0.275,0.989,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:3c14e1d9320f8e16;ValueFlow:0f759787bda8fdcc,WRONG
+cspa,cspa_bzip2,omp3,v3,16,1,2.57,2.534,0.001,980,11,0.343,0.403,0.915,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,omp3,v3,16,2,2.62,2.593,0.000,1031,11,0.334,0.388,0.946,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,omp3,v3,16,3,2.41,2.385,0.000,993,11,0.323,0.382,0.909,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,mpi,v1,16,1,2.79,1.262,0.001,166,11,0.057,0.263,0.035,0.846,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,mpi,v1,16,2,3.2,1.718,0.000,166,11,0.060,0.285,0.034,1.259,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,mpi,v1,16,3,4.39,2.659,0.001,167,11,0.085,0.334,0.033,2.082,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_lua,souffle_seq,v1,1,1,21.07,,,235,,,,,,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,,ok
+cspa,cspa_lua,souffle_seq,v1,1,2,18.47,,,235,,,,,,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,,ok
+cspa,cspa_lua,souffle_seq,v1,1,3,23.15,,,235,,,,,,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,,ok
+cspa,cspa_lua,seq,v1,1,1,5.05,7.524,0.002,1046,14,1.265,4.139,0.389,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,seq,v1,1,2,7.18,7.174,0.002,1046,14,1.167,4.093,0.388,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,seq,v1,1,3,7.28,7.275,0.001,1046,14,1.159,4.096,0.387,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,souffle_par,v1,16,1,2.99,,,271,,,,,,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,,ok
+cspa,cspa_lua,souffle_par,v1,16,2,3.05,,,258,,,,,,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,,ok
+cspa,cspa_lua,souffle_par,v1,16,3,3.15,,,262,,,,,,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,,ok
+cspa,cspa_lua,omp1,v1,16,1,0.66,3.114,0.001,1340,14,0.308,1.065,0.187,0.000,MemoryAlias=69326;ValueAlias=7098135;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:09d3fda9bf431b4e;ValueFlow:8d940924147fdc37,WRONG
+cspa,cspa_lua,omp2,v2,16,1,2.89,2.864,0.002,1436,14,0.293,0.236,0.854,0.000,MemoryAlias=69326;ValueAlias=7098324;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:26ce1889fad5169b;ValueFlow:8d940924147fdc37,WRONG
+cspa,cspa_lua,omp3,v3,16,1,20.37,20.322,0.002,7289,14,2.088,0.924,3.930,0.000,MemoryAlias=70288;ValueAlias=6182635;ValueFlow=1553478,MemoryAlias:6eacd1165b93ec04;ValueAlias:86d1a2dc27f64453;ValueFlow:754a7b3a452fcaae,WRONG
+cspa,cspa_lua,mpi,v1,16,1,3.83,2.197,0.002,159,14,0.168,0.417,0.033,1.383,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,mpi,v1,16,2,3.59,1.987,0.002,158,14,0.148,0.405,0.040,1.224,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,mpi,v1,16,3,0.78,1.570,0.002,158,14,0.141,0.379,0.045,0.854,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_linux,souffle_seq,v1,1,1,45.05,,,1725,,,,,,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,,ok
+cspa,cspa_linux,souffle_seq,v1,1,2,44.09,,,1725,,,,,,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,,ok
+cspa,cspa_linux,souffle_seq,v1,1,3,41.68,,,1725,,,,,,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,,ok
+cspa,cspa_linux,seq,v1,1,1,22.09,24.299,0.257,1068,40,6.218,4.979,11.100,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,seq,v1,1,2,24.62,24.358,0.255,1068,40,6.204,4.990,11.116,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,seq,v1,1,3,21.86,24.074,0.251,1068,40,6.102,4.954,10.997,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,souffle_par,v1,16,1,9.47,,,1845,,,,,,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,,ok
+cspa,cspa_linux,souffle_par,v1,16,2,11.81,,,1861,,,,,,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,,ok
+cspa,cspa_linux,souffle_par,v1,16,3,11.81,,,1832,,,,,,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,,ok
+cspa,cspa_linux,omp1,v1,16,1,5.31,7.514,0.247,1338,40,1.124,1.688,3.956,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:9d4f99b7ba1f1c75;ValueAlias:f94bc0255c84fba9;ValueFlow:2a7f172713d70cdc,WRONG
+cspa,cspa_linux,omp2,v2,16,1,8.09,7.798,0.252,2785,40,1.174,1.437,4.066,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:9d4f99b7ba1f1c75;ValueAlias:f94bc0255c84fba9;ValueFlow:2a7f172713d70cdc,WRONG
+cspa,cspa_linux,omp3,v3,16,1,7.86,7.572,0.250,2785,40,1.157,2.005,3.353,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:9d4f99b7ba1f1c75;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,WRONG
+cspa,cspa_linux,mpi,v1,16,1,5.69,3.478,0.637,269,40,0.605,0.400,1.281,0.757,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,mpi,v1,16,2,6.08,3.999,0.457,268,40,0.679,0.451,1.304,1.207,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,mpi,v1,16,3,4.05,4.135,0.629,270,40,0.657,0.481,1.310,1.318,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+tc,tc_SF.cedge,souffle_seq,v1,1,1,38.04,,,1996,,,,,,path=80498014,,ok
+tc,tc_SF.cedge,souffle_seq,v1,1,2,37.76,,,1996,,,,,,path=80498014,,ok
+tc,tc_SF.cedge,souffle_seq,v1,1,3,39.76,,,1996,,,,,,path=80498014,,ok
+tc,tc_SF.cedge,seq,v1,1,1,77.59,84.999,0.005,1267,287,0.458,2.553,73.786,0.000,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,souffle_par,v1,16,1,16.69,,,2011,,,,,,path=80498014,,ok
+tc,tc_SF.cedge,souffle_par,v1,16,2,19.57,,,2008,,,,,,path=80498014,,ok
+tc,tc_SF.cedge,souffle_par,v1,16,3,17.23,,,2010,,,,,,path=80498014,,ok
+tc,tc_SF.cedge,omp1,v1,16,1,27.87,30.336,0.006,1275,287,0.435,1.078,28.703,0.000,path=80498014,path:bfb4206b7269785a,WRONG
+tc,tc_SF.cedge,omp2,v2,16,1,21.21,23.676,0.006,3626,287,0.427,1.000,21.989,0.000,path=80498014,path:bfb4206b7269785a,WRONG
+tc,tc_SF.cedge,omp3,v3,16,1,6.65,6.591,0.005,3911,287,0.413,1.377,4.502,0.000,path=80498014,path:bfb4206b7269785a,WRONG
+tc,tc_SF.cedge,mpi,v1,16,1,23.04,21.569,0.008,110,287,0.074,0.247,12.669,6.496,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,mpi,v1,16,2,16.9,17.613,0.011,110,287,0.066,0.206,11.878,3.360,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,mpi,v1,16,3,20.62,21.588,0.011,110,287,0.069,0.212,12.179,7.244,path=80498014,path:f524c6623afa32fe,ok
+taint,taint_httpd,souffle_seq,v1,1,1,0.16,,,21,,,,,,Alert=4;Reach=380,,ok
+taint,taint_httpd,souffle_seq,v1,1,2,0.15,,,21,,,,,,Alert=4;Reach=380,,ok
+taint,taint_httpd,souffle_seq,v1,1,3,0.13,,,21,,,,,,Alert=4;Reach=380,,ok
+taint,taint_httpd,seq,v1,1,1,0.03,0.010,0.024,23,2,0.000,0.007,0.000,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,seq,v1,1,2,0.03,0.009,0.024,23,2,0.000,0.007,0.000,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,seq,v1,1,3,0.04,0.009,0.026,23,2,0.000,0.006,0.000,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,souffle_par,v1,16,1,0.15,,,21,,,,,,Alert=4;Reach=380,,ok
+taint,taint_httpd,souffle_par,v1,16,2,0.12,,,21,,,,,,Alert=4;Reach=380,,ok
+taint,taint_httpd,souffle_par,v1,16,3,0.12,,,21,,,,,,Alert=4;Reach=380,,ok
+taint,taint_httpd,omp1,v1,16,1,0.04,0.013,0.024,24,2,0.000,0.009,0.000,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,omp1,v1,16,2,0.04,0.015,0.021,24,2,0.000,0.012,0.000,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,omp1,v1,16,3,0.03,0.013,0.021,24,2,0.000,0.010,0.000,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,omp2,v2,16,1,0.04,0.016,0.021,24,2,0.000,0.006,0.004,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,omp2,v2,16,2,0.04,0.016,0.021,24,2,0.000,0.006,0.004,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,omp2,v2,16,3,0.04,0.016,0.022,24,2,0.000,0.006,0.004,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,omp3,v3,16,1,0.04,0.016,0.023,24,2,0.000,0.007,0.004,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,omp3,v3,16,2,0.04,0.016,0.021,24,2,0.000,0.007,0.004,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,omp3,v3,16,3,0.04,0.016,0.021,24,2,0.000,0.007,0.004,0.000,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,mpi,v1,16,1,1.68,0.063,0.039,43,2,0.000,0.001,0.000,0.046,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,mpi,v1,16,2,1.72,0.066,0.051,43,2,0.000,0.001,0.000,0.049,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_httpd,mpi,v1,16,3,1.69,0.045,0.084,43,2,0.000,0.001,0.000,0.029,Alert=4;Reach=380,Alert:9970ed224ea8303c;Reach:0d4ad150a342a20d,ok
+taint,taint_p2p-Gnutella04,souffle_seq,v1,1,1,32.6,,,1441,,,,,,Alert=451587;Reach=46274826,,ok
+taint,taint_p2p-Gnutella04,souffle_seq,v1,1,2,32.39,,,1441,,,,,,Alert=451587;Reach=46274826,,ok
+taint,taint_p2p-Gnutella04,souffle_seq,v1,1,3,33.34,,,1441,,,,,,Alert=451587;Reach=46274826,,ok
+taint,taint_p2p-Gnutella04,seq,v1,1,1,13.14,15.610,0.001,983,27,1.313,8.652,4.919,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,seq,v1,1,2,15.67,15.664,0.001,983,27,1.305,8.667,4.976,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,seq,v1,1,3,13.26,15.736,0.001,984,27,1.295,8.725,4.990,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,souffle_par,v1,16,1,8.55,,,1600,,,,,,Alert=451587;Reach=46274826,,ok
+taint,taint_p2p-Gnutella04,souffle_par,v1,16,2,8.3,,,1600,,,,,,Alert=451587;Reach=46274826,,ok
+taint,taint_p2p-Gnutella04,souffle_par,v1,16,3,6.11,,,1602,,,,,,Alert=451587;Reach=46274826,,ok
+taint,taint_p2p-Gnutella04,omp1,v1,16,1,3.46,3.422,0.002,1336,27,0.201,1.378,1.623,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,omp1,v1,16,2,3.41,3.369,0.001,1336,27,0.198,1.324,1.629,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,omp1,v1,16,3,3.55,3.508,0.001,1344,27,0.203,1.308,1.770,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,omp2,v2,16,1,4.54,4.470,0.001,2405,27,0.214,0.598,3.412,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,omp2,v2,16,2,4.41,4.366,0.002,2415,27,0.230,0.478,3.410,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,omp2,v2,16,3,4.35,4.308,0.001,2432,27,0.230,0.497,3.336,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,omp3,v3,16,1,3.43,3.389,0.001,2408,27,0.192,0.777,2.164,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,omp3,v3,16,2,3.38,3.337,0.002,2421,27,0.196,0.773,2.112,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,omp3,v3,16,3,1.01,3.458,0.002,2381,27,0.226,0.791,2.176,0.000,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,mpi,v1,16,1,3.85,2.111,0.002,127,27,0.194,0.504,0.541,0.796,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,mpi,v1,16,2,4.06,2.474,0.002,126,27,0.156,0.465,0.559,1.149,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+taint,taint_p2p-Gnutella04,mpi,v1,16,3,3.75,2.106,0.002,126,27,0.132,0.401,0.510,0.978,Alert=451587;Reach=46274826,Alert:7ead765a2f60633b;Reach:5ede5d81ae971056,ok
+cspa,cspa_httpd,souffle_seq,v1,1,1,122.24,,,8197,,,,,,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,,ok
+cspa,cspa_httpd,seq,v1,1,1,143.55,155.891,0.041,5344,46,10.493,28.447,104.254,0.000,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,souffle_par,v1,16,1,50.39,,,9710,,,,,,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,,ok
+cspa,cspa_httpd,souffle_par,v1,16,2,50.92,,,9706,,,,,,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,,ok
+cspa,cspa_httpd,souffle_par,v1,16,3,52.53,,,9673,,,,,,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,,ok
+cspa,cspa_httpd,omp1,v1,16,1,39.84,42.197,0.044,5952,46,2.595,6.124,29.292,0.000,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,omp1,v1,16,2,36.99,41.818,0.042,5975,46,2.632,6.005,28.512,0.000,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,omp1,v1,16,3,38.04,40.472,0.049,5955,46,2.328,5.472,28.258,0.000,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,omp2,v2,16,1,45.9,48.270,0.039,14131,46,2.355,4.531,36.913,0.000,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,omp2,v2,16,2,47.18,52.085,0.046,14150,46,2.638,5.175,38.969,0.000,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,omp2,v2,16,3,47.07,51.911,0.052,14129,46,2.570,4.932,39.773,0.000,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,omp3,v3,16,1,45.14,47.512,0.047,14235,46,2.516,8.065,31.969,0.000,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,omp3,v3,16,2,42.29,47.114,0.052,14364,46,2.496,8.498,30.484,0.000,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,omp3,v3,16,3,43.01,45.396,0.051,14248,46,2.343,8.128,30.126,0.000,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,mpi,v1,16,1,29.67,29.972,0.179,495,46,1.262,3.205,10.682,12.671,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,mpi,v1,16,2,25.01,25.435,0.096,506,46,1.453,3.448,11.478,6.654,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+cspa,cspa_httpd,mpi,v1,16,3,23.68,24.386,0.067,486,46,1.378,2.975,10.318,7.371,MemoryAlias=88905342;ValueAlias=234237608;ValueFlow=1365306,MemoryAlias:ba318eba32a3c2a8;ValueAlias:581b58ed9b1da7e5;ValueFlow:765c37ed1172bc89,ok
+sg,sg_ego-Facebook,souffle_seq,v1,1,1,318.66,,,544,,,,,,sg=15018986,,ok
+sg,sg_ego-Facebook,seq,v1,1,1,35.4,37.869,0.002,5604,13,10.123,26.308,0.886,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,seq,v1,1,2,32.56,37.517,0.002,5604,13,9.603,26.471,0.890,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,seq,v1,1,3,34.95,37.430,0.002,5604,13,9.563,26.426,0.884,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,souffle_par,v1,16,1,29.03,,,555,,,,,,sg=15018986,,ok
+sg,sg_ego-Facebook,souffle_par,v1,16,2,29.09,,,546,,,,,,sg=15018986,,ok
+sg,sg_ego-Facebook,souffle_par,v1,16,3,29.27,,,553,,,,,,sg=15018986,,ok
+sg,sg_ego-Facebook,omp1,v1,16,1,6.38,6.362,0.002,4700,13,1.294,4.697,0.303,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,omp1,v1,16,2,6.35,6.313,0.002,4750,13,1.246,4.677,0.324,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,omp1,v1,16,3,6.75,6.725,0.002,4697,13,1.312,5.034,0.310,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,omp2,v2,16,1,4.18,6.639,0.002,4872,13,1.440,2.647,2.449,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,omp2,v2,16,2,6.51,6.483,0.002,4879,13,1.263,2.674,2.435,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,omp2,v2,16,3,6.47,6.442,0.002,4847,13,1.444,2.530,2.359,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,omp3,v3,16,1,6.79,6.748,0.002,4731,13,1.420,2.809,2.406,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,omp3,v3,16,2,6.96,6.929,0.002,4874,13,1.426,2.797,2.584,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,omp3,v3,16,3,3.98,6.432,0.002,4813,13,1.271,2.814,2.230,0.000,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,mpi,v1,16,1,8.2,6.536,0.003,520,13,0.974,2.205,0.068,3.200,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,mpi,v1,16,2,8.49,6.864,0.003,521,13,0.957,2.168,0.056,3.566,sg=15018986,sg:01cb6dff4201079f,ok
+sg,sg_ego-Facebook,mpi,v1,16,3,8.7,6.925,0.003,521,13,1.209,3.039,0.065,2.451,sg=15018986,sg:01cb6dff4201079f,ok
+bench core done Tue Nov 17 09:03:00 EET 2026
+== taint_p2p-Gnutella04 j1
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+Alert               0     0.000     0.000     0.681    0.000       451587  0
+Flow                0     0.000     0.000     0.000    0.006        39994  0
+Reach              27    30.152     4.633     0.000    0.000         4935  11839799
+Sanitized           0     0.000     0.000     0.000    0.000          108  0
+Sink                0     0.000     0.000     0.000    0.000          108  0
+Source              0     0.000     0.000     0.000    0.001         4935  0
+TOTAL                    30.152     4.633     0.681    0.007
+share: recursive rules (join+dedup+insert) 85.0%, merge new->full (copy) 13.1%, non-recursive rules 1.9%, loading 0.0%
+    69.54%  [.] souffle::Stratum_Reach_d86852c2f1aaf8eb::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::{lambd
+    14.07%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     2.51%  [.] souffle::OptimisticReadWriteLock::start_read()                                                                                                  
+     1.81%  [.] souffle::Stratum_Alert_3bffae43927cf8ad::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::{lambd
+     1.27%  [.] souffle::Stratum_Reach_d86852c2f1aaf8eb::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)        
+     1.26%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     1.18%  [.] souffle::OptimisticReadWriteLock::try_upgrade_to_write(souffle::OptimisticReadWriteLock::Lease const&)                                          
+     1.14%  [.] _int_free_merge_chunk                                                                                                                           
+== taint_p2p-Gnutella04 j16
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+Alert               0     0.000     0.000     0.131    0.000       451587  0
+Flow                0     0.000     0.000     0.000    0.006        39994  0
+Reach              27     3.398     4.616     0.000    0.000         4935  11839799
+Sanitized           0     0.000     0.000     0.000    0.000          108  0
+Sink                0     0.000     0.000     0.000    0.000          108  0
+Source              0     0.000     0.000     0.000    0.001         4935  0
+TOTAL                     3.398     4.616     0.132    0.007
+share: recursive rules (join+dedup+insert) 41.7%, merge new->full (copy) 56.6%, non-recursive rules 1.6%, loading 0.1%
+    60.15%  [.] souffle::Stratum_Reach_d86852c2f1aaf8eb::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::{lambd
+    11.51%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     9.56%  [.] souffle::OptimisticReadWriteLock::start_read()                                                                                                  
+     5.52%  [k] osq_lock                                                                                                                                        
+     2.35%  [.] souffle::Stratum_Alert_3bffae43927cf8ad::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::{lambd
+     1.00%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     0.96%  [.] souffle::OptimisticReadWriteLock::try_upgrade_to_write(souffle::OptimisticReadWriteLock::Lease const&)                                          
+     0.84%  [.] souffle::Stratum_Reach_d86852c2f1aaf8eb::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)        
+taint,taint_p2p-Gnutella04,souffle_seq,1,32.46,1440,0
+taint,taint_p2p-Gnutella04,souffle_par,16,8.75,1600,0
+stopped chain after taint profile
+removed [('cspa_bzip2', 'omp1', '16'), ('cspa_bzip2', 'omp2', '16'), ('cspa_linux', 'omp1', '16'), ('cspa_linux', 'omp2', '16'), ('cspa_linux', 'omp3', '16'), ('cspa_lua', 'omp1', '16'), ('cspa_lua', 'omp2', '16'), ('cspa_lua', 'omp3', '16'), ('tc_SF.cedge', 'omp1', '16'), ('tc_SF.cedge', 'omp2', '16'), ('tc_SF.cedge', 'omp3', '16')]
+cspa,cspa_bzip2,omp1,v1,16,1,2.33,2.242,0.053,1008,11,0.332,0.890,0.135,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,omp1,v1,16,2,2.24,2.208,0.001,991,11,0.333,0.870,0.146,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+removed []
+cspa,cspa_bzip2,omp1,v1,16,3,2.49,2.445,0.000,999,11,0.353,0.999,0.144,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,omp2,v2,16,1,3.29,3.249,0.000,1038,11,0.499,0.330,1.138,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,omp2,v2,16,2,0.14,2.566,0.000,1062,11,0.344,0.304,1.078,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_bzip2,omp2,v2,16,3,2.51,2.471,0.001,1091,11,0.352,0.277,1.001,0.000,MemoryAlias=61137;ValueAlias=8830948;ValueFlow=191470,MemoryAlias:a33f7f3b53c568ca;ValueAlias:eafe678c3ff41d28;ValueFlow:0f759787bda8fdcc,ok
+cspa,cspa_lua,omp1,v1,16,1,2.99,2.951,0.012,1351,14,0.316,1.121,0.212,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,omp1,v1,16,2,3.01,2.977,0.002,1387,14,0.316,1.133,0.209,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,omp1,v1,16,3,3.05,3.016,0.002,1336,14,0.314,1.164,0.199,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,omp2,v2,16,1,2.93,2.904,0.001,1373,14,0.300,0.264,0.971,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,omp2,v2,16,2,3.04,3.010,0.001,1416,14,0.325,0.263,0.983,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,omp2,v2,16,3,2.92,2.882,0.002,1392,14,0.310,0.255,0.945,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,omp3,v3,16,1,2.97,2.941,0.002,1433,14,0.283,0.383,0.900,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,omp3,v3,16,2,3.01,2.979,0.002,1379,14,0.307,0.382,0.850,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_lua,omp3,v3,16,3,2.97,2.941,0.002,1384,14,0.307,0.379,0.891,0.000,MemoryAlias=69326;ValueAlias=7099084;ValueFlow=354787,MemoryAlias:317d3aae84e610e9;ValueAlias:cb24085a36430796;ValueFlow:3c7d8ed722646b49,ok
+cspa,cspa_linux,omp1,v1,16,1,7.03,8.055,1.429,1343,40,1.283,1.796,4.171,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,omp1,v1,16,2,8.08,7.791,0.256,1382,40,1.176,1.727,4.114,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,omp1,v1,16,3,8.15,7.860,0.259,1339,40,1.239,1.745,4.088,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,omp2,v2,16,1,8.26,7.966,0.256,2767,40,1.194,1.469,4.173,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,omp2,v2,16,2,5.71,7.903,0.252,2756,40,1.122,1.487,4.235,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,omp2,v2,16,3,8.0,7.701,0.260,2754,40,1.147,1.437,4.079,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,omp3,v3,16,1,7.83,7.540,0.255,2717,40,1.198,2.007,3.235,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,omp3,v3,16,2,7.81,7.510,0.257,2785,40,1.187,1.976,3.293,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+cspa,cspa_linux,omp3,v3,16,3,5.31,7.455,0.284,2720,40,1.194,1.980,3.179,0.000,MemoryAlias=13777625;ValueAlias=30938106;ValueFlow=5509641,MemoryAlias:034c0a03e4933e74;ValueAlias:74f86330756cbef3;ValueFlow:2a7f172713d70cdc,ok
+tc,tc_SF.cedge,omp1,v1,16,1,28.66,31.128,0.018,1275,287,0.438,1.087,29.482,0.000,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,omp1,v1,16,2,28.79,31.263,0.005,1276,287,0.442,1.093,29.614,0.000,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,omp1,v1,16,3,28.67,31.138,0.005,1277,287,0.444,1.101,29.478,0.000,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,omp2,v2,16,1,24.35,24.335,0.005,3630,287,0.444,1.003,22.631,0.000,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,omp2,v2,16,2,21.77,24.240,0.006,3629,287,0.442,1.015,22.523,0.000,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,omp2,v2,16,3,21.98,24.449,0.006,3629,287,0.448,1.015,22.705,0.000,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,omp3,v3,16,1,6.54,6.486,0.007,3913,287,0.435,1.489,4.267,0.000,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,omp3,v3,16,2,6.3,6.239,0.005,3911,287,0.420,1.413,4.105,0.000,path=80498014,path:f524c6623afa32fe,ok
+tc,tc_SF.cedge,omp3,v3,16,3,6.24,6.184,0.005,3913,287,0.445,1.458,3.990,0.000,path=80498014,path:f524c6623afa32fe,ok
+rerun_done

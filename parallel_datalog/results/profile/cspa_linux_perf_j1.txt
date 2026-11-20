@@ -1,0 +1,30 @@
+    29.62%  [.] souffle::t_btree_000_ii__0_1__11__10::Type::lowerUpperRange_10(std::array<long, 2ul> const&, std::array<long, 2ul> const&, souffle::t_btree_000_
+    12.98%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+    10.08%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     8.41%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11__10::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >
+     7.16%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     5.56%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     4.92%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     3.68%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     2.50%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     1.75%  [.] souffle::OptimisticReadWriteLock::start_read()                                                                                                  
+     1.23%  [.] souffle::OptimisticReadWriteLock::try_upgrade_to_write(souffle::OptimisticReadWriteLock::Lease const&)                                          
+     0.94%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)  
+     0.93%  [.] _int_free_merge_chunk                                                                                                                           
+     0.83%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     0.81%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     0.70%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11__10::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >
+     0.52%  [k] clear_page_erms                                                                                                                                 
+     0.45%  [.] souffle::Stratum_MemoryAlias_eb2b99d17f3353cf::run(std::vector<long, std::allocator<long> > const&, std::vector<long, std::allocator<long> >&)::
+     0.42%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11__10::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >
+     0.41%  [.] __memmove_avx512_unaligned_erms                                                                                                                 
+     0.38%  [.] souffle::OptimisticReadWriteLock::start_write()                                                                                                 
+     0.32%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >, 25
+     0.28%  [.] souffle::detail::btree<std::array<long, 2ul>, souffle::t_btree_000_ii__0_1__11__10::Type::t_comparator_0, std::allocator<std::array<long, 2ul> >
+     0.26%  [.] souffle::ReadStreamCSV::readNextTuple()                                                                                                         
+     0.25%  [.] _int_malloc                                                                                                                                     
+     0.25%  [k] do_user_addr_fault                                                                                                                              
+     0.22%  [.] __GI_____strtoll_l_internal                                                                                                                     
+     0.21%  [.] malloc                                                                                                                                          
+     0.20%  [.] __memchr_evex                                                                                                                                   
+     0.19%  [.] _int_free                                                                                                                                       

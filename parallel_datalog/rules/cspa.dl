@@ -1,0 +1,44 @@
+// cspa.dl - context-sensitive points-to analysis (CSPA) from Graspan.
+// The rules are copied unchanged from GPUlog's benchmark (harp-lab/gdlog, test/souffle/cspa.dl),
+// so our timings are comparable with the GPUlog paper. Only the input/output lines are ours.
+//
+//   assign(x, y)       : x = y            (value of y flows into x)
+//   dereference(x, y)  : y = *x           (from the Graspan front end)
+//   ValueFlow(x, y)    : value can flow from x to y
+//   MemoryAlias(x, y)  : x and y may be the same memory location
+//   ValueAlias(x, y)   : x and y may hold the same value
+//
+// Compile with -M "SIZE_ONLY" to print only the sizes (big inputs), otherwise the
+// relations are written as CSV (small inputs, correctness checks).
+
+.decl assign(src: number, dest: number)
+.input assign
+.decl dereference(src: number, dest: number)
+.input dereference
+
+.decl ValueFlow(src: number, dest: number)
+.decl ValueAlias(src: number, dest: number)
+.decl MemoryAlias(src: number, dest: number)
+
+#ifdef SIZE_ONLY
+.printsize ValueFlow
+.printsize ValueAlias
+.printsize MemoryAlias
+#else
+.output ValueFlow
+.output ValueAlias
+.output MemoryAlias
+#endif
+
+ValueFlow(x, y) :- ValueFlow(x, z), ValueFlow(z, y).
+ValueAlias(x, y) :- ValueFlow(z, x), ValueFlow(z, y).
+ValueFlow(x, y) :- assign(x, z), MemoryAlias(z, y).
+MemoryAlias(x, w) :- dereference(y, x), ValueAlias(y, z), dereference(z, w).
+ValueAlias(x, y) :- ValueFlow(z, x), MemoryAlias(z, w), ValueFlow(w, y).
+
+ValueFlow(y, x) :- assign(y, x).
+ValueFlow(x, x) :- assign(x, y).
+ValueFlow(x, x) :- assign(y, x).
+
+MemoryAlias(x, x) :- assign(y, x).
+MemoryAlias(x, x) :- assign(x, y).

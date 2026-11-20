@@ -1,0 +1,146 @@
+[
+  {
+    "backend": "sequential",
+    "workers": 1,
+    "rep": 1,
+    "wall_s": 15.69,
+    "exit": 0,
+    "sampled_peak_total_rss_mib": 1220.1,
+    "sampled_peak_process_rss_mib": 1220.1,
+    "observed_processes": 1,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  },
+  {
+    "backend": "pthreads",
+    "workers": 4,
+    "rep": 1,
+    "wall_s": 6.73,
+    "exit": 0,
+    "sampled_peak_total_rss_mib": 1289.9,
+    "sampled_peak_process_rss_mib": 1289.9,
+    "observed_processes": 1,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  },
+  {
+    "backend": "mpi",
+    "workers": 4,
+    "rep": 1,
+    "wall_s": 25.16,
+    "exit": 0,
+    "sampled_peak_total_rss_mib": 5276.5,
+    "sampled_peak_process_rss_mib": 1321.1,
+    "observed_processes": 4,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  },
+  {
+    "backend": "sequential",
+    "workers": 1,
+    "rep": 2,
+    "wall_s": 16.97,
+    "exit": 0,
+    "sampled_peak_total_rss_mib": 1220.0,
+    "sampled_peak_process_rss_mib": 1220.0,
+    "observed_processes": 1,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  },
+  {
+    "backend": "pthreads",
+    "workers": 4,
+    "rep": 2,
+    "wall_s": 6.68,
+    "exit": 0,
+    "sampled_peak_total_rss_mib": 1289.8,
+    "sampled_peak_process_rss_mib": 1289.8,
+    "observed_processes": 1,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  },
+  {
+    "backend": "mpi",
+    "workers": 4,
+    "rep": 2,
+    "wall_s": 22.03,
+    "exit": 0,
+    "sampled_peak_total_rss_mib": 5264.4,
+    "sampled_peak_process_rss_mib": 1321.2,
+    "observed_processes": 4,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  },
+  {
+    "backend": "sequential",
+    "workers": 1,
+    "rep": 3,
+    "wall_s": 15.32,
+    "exit": 0,
+    "sampled_peak_total_rss_mib": 1220.0,
+    "sampled_peak_process_rss_mib": 1220.0,
+    "observed_processes": 1,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  },
+  {
+    "backend": "pthreads",
+    "workers": 4,
+    "rep": 3,
+    "wall_s": 6.65,
+    "exit": 0,
+    "sampled_peak_total_rss_mib": 1290.2,
+    "sampled_peak_process_rss_mib": 1290.2,
+    "observed_processes": 1,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  },
+  {
+    "backend": "mpi",
+    "workers": 4,
+    "rep": 3,
+    "wall_s": 22.09,
+    "exit": 0,
+    "sampled_peak_total_rss_mib": 5275.8,
+    "sampled_peak_process_rss_mib": 1321.2,
+    "observed_processes": 4,
+    "counts": {
+      "MemoryAlias": 10778093,
+      "ValueAlias": 28256054,
+      "ValueFlow": 121505
+    },
+    "stderr": ""
+  }
+]

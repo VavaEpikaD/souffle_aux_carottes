@@ -1,0 +1,5 @@
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+edge                0     0.000     0.000     0.000    0.045       221802  0
+path              287     3.710    13.838     0.012    0.000       221802  569880
+TOTAL                     3.710    13.838     0.012    0.045
+share: recursive rules (join+dedup+insert) 21.1%, merge new->full (copy) 78.6%, non-recursive rules 0.1%, loading 0.3%

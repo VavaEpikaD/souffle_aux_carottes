@@ -1,0 +1,52 @@
+{
+  "expected": 12,
+  "recorded": 12,
+  "missing": 0,
+  "summary": [
+    {
+      "dataset": "full",
+      "backend": "mpi",
+      "workers": 4,
+      "completed": 3,
+      "failed": 0,
+      "median_s": 160.087,
+      "speedup": 1.272,
+      "peak_total_rss_mib": 38831.6,
+      "counts_checked": true
+    },
+    {
+      "dataset": "full",
+      "backend": "openmp",
+      "workers": 4,
+      "completed": 3,
+      "failed": 0,
+      "median_s": 100.059,
+      "speedup": 2.036,
+      "peak_total_rss_mib": 9772.9,
+      "counts_checked": true
+    },
+    {
+      "dataset": "full",
+      "backend": "pthreads",
+      "workers": 4,
+      "completed": 3,
+      "failed": 0,
+      "median_s": 81.07,
+      "speedup": 2.512,
+      "peak_total_rss_mib": 9498.2,
+      "counts_checked": true
+    },
+    {
+      "dataset": "full",
+      "backend": "sequential",
+      "workers": 1,
+      "completed": 3,
+      "failed": 0,
+      "median_s": 203.684,
+      "speedup": 1.0,
+      "peak_total_rss_mib": 9000.5,
+      "counts_checked": true
+    }
+  ],
+  "failures": []
+}

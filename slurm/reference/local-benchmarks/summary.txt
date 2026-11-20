@@ -1,0 +1,14 @@
+CSPA PostgreSQL subset benchmark
+Input: PostgreSQL 8.3.9 facts, retaining rows where both endpoints < 200000.
+Input rows: assign=42217, dereference=133320, total=175537.
+Build flags (both): -std=c++17 -O3 -DNDEBUG -pthread -DRAM_DOMAIN_SIZE=64
+SIZE_ONLY outputs, no profiler. Wall time includes startup, input loading, evaluation, and printing counts. Three interleaved runs per executable.
+Sequential seconds: [15.277, 15.076, 14.932]; median=15.076
+Pthreads (4 workers) seconds: [6.464, 6.454, 6.239]; median=6.454
+Speedup: 2.34x
+Peak RSS: sequential=1219.9 MiB, pthreads=1289.2 MiB.
+All six runs returned matching counts (not a complete tuple comparison):
+MemoryAlias	10778093
+ValueAlias	28256054
+ValueFlow	121505
+Full PostgreSQL attempts failed with bad_alloc under a 5 GiB address-space cap: sequential 165.425 s; pthreads 55.650 s. These are failure times, not completed benchmark timings.

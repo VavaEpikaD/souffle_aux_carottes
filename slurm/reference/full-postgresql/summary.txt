@@ -1,0 +1,19 @@
+Full PostgreSQL CSPA benchmark on Slurm (2026-11-20)
+Run ID: 20261120-011934-c0a61a; benchmark array: 303146; input-manifest job: 303145.
+Input: PostgreSQL 8.3.9 full facts, assign=1209597, dereference=3468946, total=4678543.
+Three repetitions each, sequential or four pthread/OpenMP workers / four local MPI ranks.
+Haswell compute nodes reserved exclusively, 32 CPUs and 48 GiB per task; actual worker counts above.
+All 12 Slurm tasks COMPLETED with exit 0; no timeouts.
+GCC 13 / same Apptainer image, -std=c++17 -O3 -DNDEBUG -pthread -DRAM_DOMAIN_SIZE=64.
+OpenMP additionally -fopenmp; MPI built/run with the container Open MPI 4.1.6.
+Wall time includes container/process startup, input load, evaluation and counts output.
+MPI includes launcher startup/shutdown, communication and synchronization.
+Compilation and queue times excluded; OpenMP default wait policy.
+Peak RSS sampled every 100 ms. MPI memory is summed rank RSS, including repeated shared pages.
+sequential: runs=[203.11, 203.684, 204.54], median=203.684 s, speedup=1.000x, peak_total_rss=9000.5 MiB (8.79 GiB)
+pthreads: runs=[81.07, 78.745, 81.218], median=81.070 s, speedup=2.512x, peak_total_rss=9498.2 MiB (9.28 GiB)
+openmp: runs=[102.142, 98.246, 100.059], median=100.059 s, speedup=2.036x, peak_total_rss=9772.9 MiB (9.54 GiB)
+mpi: runs=[160.805, 159.24, 160.087], median=160.087 s, speedup=1.272x, peak_total_rss=38831.6 MiB (37.92 GiB)
+All runs returned matching counts (complete tuple contents were not compared):
+{"MemoryAlias": 89475479, "ValueAlias": 223793861, "ValueFlow": 3712452}
+The earlier small-subset run was on a different local machine. Input-size and hardware effects cannot be isolated from that comparison.

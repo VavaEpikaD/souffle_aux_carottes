@@ -1,0 +1,15 @@
+rules,input,variant,threads,wall_s,maxrss_MB,status
+cspa,cspa_linux,souffle_seq,1,43.55,1725,0
+cspa,cspa_linux,souffle_par,1,39.82,1725,0
+cspa,cspa_linux,souffle_par,2,27.11,1734,0
+cspa,cspa_linux,souffle_par,4,15.50,1829,0
+cspa,cspa_linux,souffle_par,8,13.81,1847,0
+cspa,cspa_linux,souffle_par,16,9.25,1840,0
+cspa,cspa_httpd,souffle_seq,1,116.26,8196,0
+cspa,cspa_httpd,souffle_par,1,114.44,8196,0
+cspa,cspa_httpd,souffle_par,16,41.89,9833,0
+tc,tc_SF.cedge,souffle_seq,1,37.70,1995,0
+tc,tc_SF.cedge,souffle_par,1,37.20,1995,0
+tc,tc_SF.cedge,souffle_par,16,16.62,2008,0
+taint,taint_p2p-Gnutella04,souffle_seq,1,32.46,1440,0
+taint,taint_p2p-Gnutella04,souffle_par,16,8.75,1600,0

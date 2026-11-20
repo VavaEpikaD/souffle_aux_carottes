@@ -1,0 +1,9 @@
+relation        iters   rules_s    copy_s  nonrec_s   load_s       tuples  max_delta
+Alert               0     0.000     0.000     0.131    0.000       451587  0
+Flow                0     0.000     0.000     0.000    0.006        39994  0
+Reach              27     3.398     4.616     0.000    0.000         4935  11839799
+Sanitized           0     0.000     0.000     0.000    0.000          108  0
+Sink                0     0.000     0.000     0.000    0.000          108  0
+Source              0     0.000     0.000     0.000    0.001         4935  0
+TOTAL                     3.398     4.616     0.132    0.007
+share: recursive rules (join+dedup+insert) 41.7%, merge new->full (copy) 56.6%, non-recursive rules 1.6%, loading 0.1%
